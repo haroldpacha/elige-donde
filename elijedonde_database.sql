@@ -171,3 +171,36 @@ INSERT INTO property_features (name, icon, category) VALUES
 ('Cochera', 'garage', 'espacios'),
 ('Depósito', 'storage', 'espacios'),
 ('Lavandería', 'laundry', 'espacios');
+
+-- Tabla de usuarios administrativos
+CREATE TABLE admin_users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'manager', 'agent') DEFAULT 'admin',
+    is_active BOOLEAN DEFAULT TRUE,
+    last_login TIMESTAMP NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Tabla de archivos de propiedades (PDFs, documentos)
+CREATE TABLE property_documents (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    property_id INT NOT NULL,
+    document_type ENUM('pdf', 'contract', 'deed', 'plan', 'other') DEFAULT 'pdf',
+    file_name VARCHAR(255) NOT NULL,
+    file_path VARCHAR(500) NOT NULL,
+    file_size INT DEFAULT 0,
+    uploaded_by INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (property_id) REFERENCES properties(id) ON DELETE CASCADE,
+    FOREIGN KEY (uploaded_by) REFERENCES admin_users(id)
+);
+
+-- Insertar usuario administrador por defecto
+INSERT INTO admin_users (first_name, last_name, email, password, role) VALUES
+('Admin', 'RE/MAX', 'admin@remax-peru.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
+-- Contraseña: password

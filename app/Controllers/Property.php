@@ -135,8 +135,8 @@ class Property extends BaseController
             ->where('properties.id !=', $property['id'])
             ->where('properties.is_active', 1)
             ->groupStart()
-                ->where('properties.agent_id', $property['agent_id'])
-                ->orWhere('properties.location_id', $property['location_id'])
+                //->where('properties.agent_id', $property['agent_id'])
+                ->where('properties.location_id', $property['location_id'])
             ->groupEnd()
             ->orderBy('properties.featured', 'DESC')
             ->findAll(6);
