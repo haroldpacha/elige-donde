@@ -1,4 +1,4 @@
--- Datos de ejemplo para RE/MAX Perú
+-- Datos de ejemplo para Elige Donde
 
 -- Insertar más agentes
 INSERT INTO agents (first_name, last_name, email, phone, cell_phone, photo, license_number) VALUES

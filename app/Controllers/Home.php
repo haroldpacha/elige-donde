@@ -64,7 +64,7 @@ class Home extends BaseController
         ];
 
         $data = [
-            'title' => 'RE/MAX Perú - Nadie en el mundo vende más bienes raíces que RE/MAX',
+            'title' => 'Elige Donde - Nadie en el mundo vende más bienes raíces que Elige Donde',
             'featured_properties' => $featuredProperties,
             'property_types' => $propertyTypes,
             'locations' => $locations,
@@ -155,7 +155,7 @@ class Home extends BaseController
         }
 
         $data = [
-            'title' => 'Contacto - RE/MAX Perú',
+            'title' => 'Contacto - Elige Donde',
             'agents' => $this->agentModel->getActiveAgents()
         ];
 

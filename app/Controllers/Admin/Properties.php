@@ -121,7 +121,7 @@ class Properties extends BaseController
         $locations = $this->locationModel->getAllLocations();
 
         $data = [
-            'title' => 'Gestión de Propiedades - Admin RE/MAX Perú',
+            'title' => 'Gestión de Propiedades - Admin Elige Donde',
             'properties' => $properties,
             'property_types' => $propertyTypes,
             'locations' => $locations,
@@ -146,7 +146,7 @@ class Properties extends BaseController
         }
 
         $data = [
-            'title' => 'Crear Nueva Propiedad - Admin RE/MAX Perú',
+            'title' => 'Crear Nueva Propiedad - Admin Elige Donde',
             'property_types' => $this->propertyTypeModel->getAllTypes(),
             'locations' => $this->locationModel->getAllLocations(),
             'agents' => $this->agentModel->getActiveAgents(),
@@ -326,7 +326,7 @@ class Properties extends BaseController
         $property['documents'] = $this->propertyDocumentModel->getPropertyDocuments($id);
 
         $data = [
-            'title' => 'Editar Propiedad - Admin RE/MAX Perú',
+            'title' => 'Editar Propiedad - Admin Elige Donde',
             'property' => $property,
             'property_types' => $this->propertyTypeModel->getAllTypes(),
             'locations' => $this->locationModel->getAllLocations(),

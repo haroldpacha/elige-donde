@@ -85,7 +85,7 @@ class Property extends BaseController
         $totalPages = ceil($totalResults / $perPage);
 
         $data = [
-            'title' => 'Propiedades - RE/MAX Perú',
+            'title' => 'Propiedades - Elige Donde',
             'properties' => $properties,
             'property_types' => $propertyTypes,
             'locations' => $locations,
@@ -157,7 +157,7 @@ class Property extends BaseController
         }
 
         $data = [
-            'title' => $property['title'] . ' - RE/MAX Perú',
+            'title' => $property['title'] . ' - Elige Donde',
             'property' => $property,
             'images' => $images,
             'features' => $features,

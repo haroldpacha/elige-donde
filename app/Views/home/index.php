@@ -5,13 +5,13 @@
 <!-- Hero Section -->
 <section class="hero-section position-relative">
     <div class="hero-background">
-        <img src="<?= base_url('assets/images/hero-bg.jpg') ?>" alt="RE/MAX Perú" class="w-100 h-100 object-cover">
+        <img src="<?= base_url('assets/images/hero-bg.jpg') ?>" alt="Elige Donde" class="w-100 h-100 object-cover">
         <div class="hero-overlay"></div>
     </div>
 
     <div class="hero-content position-absolute top-50 start-50 translate-middle text-center text-white">
         <h1 class="hero-title display-4 fw-bold mb-4">
-            Nadie en el mundo vende más bienes raíces que RE/MAX
+            Nadie en el mundo vende más bienes raíces que Elige Donde
         </h1>
 
         <!-- Transaction Type Buttons -->

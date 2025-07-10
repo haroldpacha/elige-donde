@@ -1,4 +1,4 @@
--- Base de datos RE/MAX Perú
+-- Base de datos Elige Donde
 CREATE DATABASE IF NOT EXISTS remax_peru;
 USE remax_peru;
 
@@ -22,7 +22,7 @@ CREATE TABLE agents (
     phone VARCHAR(20),
     cell_phone VARCHAR(20),
     photo VARCHAR(255),
-    company VARCHAR(100) DEFAULT 'RE/MAX CENTRAL REALTY',
+    company VARCHAR(100) DEFAULT 'Elige Donde CENTRAL REALTY',
     license_number VARCHAR(50),
     is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -202,5 +202,5 @@ CREATE TABLE property_documents (
 
 -- Insertar usuario administrador por defecto
 INSERT INTO admin_users (first_name, last_name, email, password, role) VALUES
-('Admin', 'RE/MAX', 'admin@remax-peru.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
+('Admin', 'Elige Donde', 'admin@remax-peru.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
 -- Contraseña: password

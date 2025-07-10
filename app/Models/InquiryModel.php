@@ -137,7 +137,7 @@ class InquiryModel extends Model
         // Por ejemplo usando la librería de email de CodeIgniter
         $email = \Config\Services::email();
         $email->setTo($inquiry['agent_email']);
-        $email->setFrom('noreply@remax-peru.com', 'RE/MAX Perú');
+        $email->setFrom('noreply@remax-peru.com', 'Elige Donde');
         $email->setSubject('Nueva consulta de propiedad: ' . $inquiry['property_title']);
 
         $message = "

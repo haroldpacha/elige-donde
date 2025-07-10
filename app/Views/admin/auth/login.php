@@ -24,7 +24,7 @@
                             <div class="card-body p-5">
                                 <!-- Logo -->
                                 <div class="text-center mb-4">
-                                    <img src="<?= base_url('assets/images/remax-logo.png') ?>" alt="RE/MAX Perú" height="60">
+                                    <img src="<?= base_url('assets/images/remax-logo.png') ?>" alt="Elige Donde" height="60">
                                     <h3 class="mt-3 text-primary">Panel Administrativo</h3>
                                     <p class="text-muted">Ingresa tus credenciales para acceder</p>
                                 </div>
@@ -139,7 +139,7 @@
                                 </a>
                             </p>
                             <p class="text-muted small">
-                                © <?= date('Y') ?> RE/MAX Perú. Todos los derechos reservados.
+                                © <?= date('Y') ?> Elige Donde. Todos los derechos reservados.
                             </p>
                         </div>
                     </div>

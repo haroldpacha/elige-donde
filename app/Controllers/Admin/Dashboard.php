@@ -95,7 +95,7 @@ class Dashboard extends BaseController
         }
 
         $data = [
-            'title' => 'Dashboard - Admin RE/MAX Perú',
+            'title' => 'Dashboard - Admin Elige Donde',
             'stats' => $stats,
             'recent_properties' => $recentProperties,
             'recent_inquiries' => $recentInquiries,
@@ -154,7 +154,7 @@ class Dashboard extends BaseController
         ];
 
         $data = [
-            'title' => 'Análiticas - Admin RE/MAX Perú',
+            'title' => 'Análiticas - Admin Elige Donde',
             'analytics' => $analytics
         ];
 
@@ -214,7 +214,7 @@ class Dashboard extends BaseController
         }
 
         $data = [
-            'title' => 'Configuración del Sistema - Admin RE/MAX Perú'
+            'title' => 'Configuración del Sistema - Admin Elige Donde'
         ];
 
         return view('admin/dashboard/settings', $data);
@@ -252,7 +252,7 @@ class Dashboard extends BaseController
         ];
 
         $data = [
-            'title' => 'Registro de Actividades - Admin RE/MAX Perú',
+            'title' => 'Registro de Actividades - Admin Elige Donde',
             'activities' => $activities
         ];
 

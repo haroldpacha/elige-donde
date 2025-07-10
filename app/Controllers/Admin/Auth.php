@@ -23,7 +23,7 @@ class Auth extends BaseController
         }
 
         $data = [
-            'title' => 'Iniciar Sesión - Admin RE/MAX Perú'
+            'title' => 'Iniciar Sesión - Admin Elige Donde'
         ];
 
         return view('admin/auth/login', $data);
@@ -85,7 +85,7 @@ class Auth extends BaseController
     public function forgotPassword()
     {
         $data = [
-            'title' => 'Recuperar Contraseña - Admin RE/MAX Perú'
+            'title' => 'Recuperar Contraseña - Admin Elige Donde'
         ];
 
         return view('admin/auth/forgot_password', $data);
@@ -164,7 +164,7 @@ class Auth extends BaseController
         $user = $this->adminUserModel->getUserById($userId);
 
         $data = [
-            'title' => 'Mi Perfil - Admin RE/MAX Perú',
+            'title' => 'Mi Perfil - Admin Elige Donde',
             'user' => $user
         ];
 

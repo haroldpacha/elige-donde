@@ -1,4 +1,4 @@
-// RE/MAX Peru Admin Dashboard JavaScript
+// Elige Donde Peru Admin Dashboard JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize admin dashboard
@@ -559,7 +559,7 @@ window.exportToCSV = function(data, filename = 'export.csv') {
 };
 
 // Initialize everything when DOM is loaded
-console.log('RE/MAX Admin Dashboard JavaScript Loaded');
+console.log('Elige Donde Admin Dashboard JavaScript Loaded');
 
 // Auto-hide alerts
 setTimeout(function() {

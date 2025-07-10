@@ -1,4 +1,4 @@
-// RE/MAX Peru Main JavaScript
+// Elige Donde Peru Main JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
 

@@ -41,7 +41,7 @@ class Agent extends BaseController
         }
 
         $data = [
-            'title' => 'Asesores Inmobiliarios - RE/MAX Perú',
+            'title' => 'Asesores Inmobiliarios - Elige Donde',
             'agents' => $agents,
             'search' => $search
         ];
@@ -84,7 +84,7 @@ class Agent extends BaseController
         $monthlyStats = $this->getAgentMonthlyStats($agentId);
 
         $data = [
-            'title' => $agent['full_name'] . ' - Asesor RE/MAX Perú',
+            'title' => $agent['full_name'] . ' - Asesor Elige Donde',
             'agent' => $agent,
             'properties' => $agentProperties,
             'recent_inquiries' => array_slice($recentInquiries, 0, 5),
@@ -194,7 +194,7 @@ class Agent extends BaseController
         $email = \Config\Services::email();
         $email->setTo($agent['email']);
         $email->setFrom($inquiryData['email'], $inquiryData['name']);
-        $email->setSubject('Contacto directo desde RE/MAX Perú');
+        $email->setSubject('Contacto directo desde Elige Donde');
 
         $message = "
             Has recibido un nuevo mensaje de contacto:
@@ -209,7 +209,7 @@ class Agent extends BaseController
             Puedes responder directamente a este email o contactar al cliente usando la información proporcionada.
 
             Saludos,
-            Equipo RE/MAX Perú
+            Equipo Elige Donde
         ";
 
         $email->setMessage($message);

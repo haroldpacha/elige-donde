@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'RE/MAX Perú - Nadie en el mundo vende más bienes raíces que RE/MAX' ?></title>
+    <title><?= $title ?? 'Elige Donde - Nadie en el mundo vende más bienes raíces que Elige Donde' ?></title>
 
     <!-- Meta tags -->
-    <meta name="description" content="RE/MAX Perú - Encuentra tu hogar ideal con la red inmobiliaria más grande del mundo. Casas, departamentos, oficinas y más.">
-    <meta name="keywords" content="inmobiliaria, bienes raíces, casas, departamentos, venta, alquiler, RE/MAX, Perú">
+    <meta name="description" content="Elige Donde - Encuentra tu hogar ideal con la red inmobiliaria más grande del mundo. Casas, departamentos, oficinas y más.">
+    <meta name="keywords" content="inmobiliaria, bienes raíces, casas, departamentos, venta, alquiler, Elige Donde, Perú">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@
                             <a href="#" class="text-white me-3"><i class="fab fa-youtube"></i></a>
                             <a href="#" class="text-white me-3"><i class="fab fa-tiktok"></i></a>
                             <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                            <span class="ms-3">Mi RE/MAX</span>
+                            <span class="ms-3">Mi Elige Donde</span>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="<?= base_url() ?>">
-                    <img src="<?= base_url('assets/images/remax-logo.png') ?>" alt="RE/MAX Perú" height="50">
+                    <img src="<?= base_url('assets/images/remax-logo.png') ?>" alt="Elige Donde" height="50">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -93,8 +93,8 @@
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-4 mb-4">
-                    <img src="<?= base_url('assets/images/remax-logo-white.png') ?>" alt="RE/MAX Perú" height="60" class="mb-3">
-                    <p>Nadie en el mundo vende más bienes raíces que RE/MAX. Encontremos tu hogar ideal juntos.</p>
+                    <img src="<?= base_url('assets/images/remax-logo-white.png') ?>" alt="Elige Donde" height="60" class="mb-3">
+                    <p>Nadie en el mundo vende más bienes raíces que Elige Donde. Encontremos tu hogar ideal juntos.</p>
                     <div class="social-links">
                         <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-white me-3"><i class="fab fa-youtube"></i></a>
@@ -144,7 +144,7 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; <?= date('Y') ?> RE/MAX Perú. Todos los derechos reservados.</p>
+                    <p class="mb-0">&copy; <?= date('Y') ?> Elige Donde. Todos los derechos reservados.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <a href="#" class="text-white-50 me-3">Términos y Condiciones</a>

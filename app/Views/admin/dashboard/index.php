@@ -6,7 +6,7 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <h1 class="h3 mb-0">Dashboard</h1>
-        <p class="text-muted">Bienvenido al panel administrativo de RE/MAX Perú</p>
+        <p class="text-muted">Bienvenido al panel administrativo de Elige Donde</p>
     </div>
     <div>
         <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#quickStatsModal">
