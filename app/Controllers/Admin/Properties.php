@@ -229,6 +229,9 @@ class Properties extends BaseController
             $agents = $this->request->getPost('agents');
             if (!empty($agents)) {
                 foreach ($agents as $index => $agentData) {
+                    if (empty($agentData['agent_id'])) {
+                        continue; // Skip if no agent ID provided
+                    }
                     $this->propertyAgentModel->assignAgentToProperty($propertyId, $agentData['agent_id'], [
                         'is_primary' => $index === 0 ? true : false,
                         'role' => $agentData['role'] ?? 'principal',
@@ -238,7 +241,7 @@ class Properties extends BaseController
             }
 
             // Handle image uploads
-            $images = $this->request->getFiles('images');
+            $images = $this->request->getFileMultiple('images');
             if (!empty($images)) {
                 foreach ($images as $index => $image) {
                     if ($image->isValid() && !$image->hasMoved()) {
