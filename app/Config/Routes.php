@@ -66,7 +66,19 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
     $routes->post('propiedades/set-main-image/(:num)/(:num)', 'Properties::setMainImage/$1/$2');
 
     // Gestión de agentes
-    $routes->resource('agentes', ['controller' => 'Agents']);
+    //$routes->resource('agentes', ['controller' => 'Agents']);
+    $routes->get('agentes', 'Agents::index');
+    $routes->get('agentes/crear', 'Agents::create');
+    $routes->post('agentes/store', 'Agents::store');
+    $routes->get('agentes/edit/(:num)', 'Agents::edit/$1');
+    $routes->post('agentes/update/(:num)', 'Agents::update/$1');
+    $routes->delete('agentes/delete/(:num)', 'Agents::delete/$1');
+    $routes->post('agentes/toggle-featured/(:num)', 'Agents::toggleFeatured/$1');
+    $routes->post('agentes/toggle-active/(:num)', 'Agents::toggleActive/$1');
+    $routes->delete('agentes/delete-image/(:num)', 'Agents::deleteImage/$1');
+    $routes->delete('agentes/delete-document/(:num)', 'Agents::deleteDocument/$1');
+    $routes->post('agentes/set-main-image/(:num)/(:num)', 'Agents::setMainImage/$1/$2');
+
 
     // Gestión de consultas
     $routes->get('consultas', 'Inquiries::index');
