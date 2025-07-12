@@ -27,6 +27,7 @@ $routes->get('asesores', 'Agent::index');
 $routes->get('asesor/(:num)', 'Agent::profile/$1');
 
 // Rutas de contacto
+$routes->get('contacto', 'Contact::index');
 $routes->post('contacto', 'Contact::send');
 $routes->post('solicitar-informacion', 'Contact::propertyInquiry');
 

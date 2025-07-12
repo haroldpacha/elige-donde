@@ -1,0 +1,746 @@
+@font-face {
+    font-family: 'Bio Sans';
+    src: url('../fonts/BioSans-Regular.otf') format('truetype');
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Bio Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.bio {
+    font-family: 'Bio Sans', sans-serif;
+}
+
+.logo {
+    height: 50px;
+}
+
+h6 {
+    padding: 0px !important;
+}
+
+.bg-primary {
+    background-color: #03669c !important; /* Color de fondo */
+}
+
+.bg-secondary {
+    color: #004473 !important; /* Color de fondo */
+}
+
+.g600 {
+    color: #666666 !important; /* Color de fondo */
+}
+
+.g900 {
+    color: #999999;
+}
+
+.navbar-toggler {
+    border: none; /* Sin borde en el botón */
+}
+
+.navbar-toggler-icon {
+    background-color: white; /* Cambia el color del icono a blanco */
+}
+
+/* Estilo para el logo en el modal */
+.modal-footer {
+
+    justify-content: center; /* Centrar el logo */
+}
+
+
+/* Ocultar el menú normal en pantallas pequeñas */
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none; /* Ocultar menú normal en móviles */
+    }
+}
+
+/* Mostrar el menú normal en pantallas grandes */
+@media (min-width: 769px) {
+    .mobile-menu {
+        display: none; /* Ocultar menú modal en escritorio */
+    }
+}
+
+
+.menumod {
+    background-color: transparent !important;
+    padding: 20px;
+    border-color: transparent;
+
+}
+
+
+.border {
+    border-color: #ffa00a;
+}
+
+.banner {
+    background-image: url('../images/Banner.png'); /* Cambia esta ruta */
+    background-size: cover; /* Ajusta la imagen para cubrir toda la sección */
+    background-position: center; /* Centra la imagen */
+    height: 400px; /* Ajusta la altura según necesites */
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+    color: white; /* Color del texto */
+}
+
+.banner-title {
+    font-size: 3rem; /* Ajusta el tamaño del texto */
+}
+
+.ultimas-propiedades {
+    padding: 30px 0;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #004473; /* Color del título */
+}
+
+.line {
+    width: 200px;
+    height: 3px;
+    background-color: #ffa00a;
+    margin: 20px auto;
+}
+
+.card {
+    border: #999999;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: all 0.3s ease-in-out; /* Animación de suavidad */
+}
+
+
+.card:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más intensa al pasar el mouse */
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.id-property {
+    padding: 1px;
+
+    text-align: center;
+    color: #ffa00a;
+    border-radius: 10px;
+    border: 1px solid #ffa00a; /* Aquí aplicas el color del borde */
+    width: 100px;
+}
+
+.price {
+    font-size: 1.2rem;
+    text-align: start;
+    color: #03669c;
+    font-weight: 600;
+}
+
+.location {
+    text-align: start;
+    color: #666;
+}
+
+.area {
+    color: #666666;
+    font-weight: 600;
+}
+
+.terr {
+    line-height: 0.8 !important;
+    margin-bottom: 5px;
+}
+
+.info {
+    text-align: start;
+    font-size: small;
+    margin-bottom: 5px;
+}
+
+.square {
+    max-width: 450px;
+    max-height: 300px;
+    border-radius: 20px !important;
+    margin-left: 20%;
+}
+
+@media (max-width: 767px) {
+    .square {
+        width: 100%;
+        margin-left: 25px;
+        border-radius: 20;
+    }
+}
+
+.separator {
+    border-color: #004473; /* Color de la línea separadora */
+}
+
+.advisor {
+    text-align: center;
+}
+
+.advisor-img {
+    width: 70px; /* Tamaño del círculo del asesor */
+    height: 70px;
+    border-radius: 50%; /* Círculo */
+    object-fit: fill; /* Para que la imagen ajuste bien */
+    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    border-radius: 50%; /* Asegurar que la imagen sea circular */
+    transition: all 0.3s ease-in-out;
+}
+
+.advisor1-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Círculo */
+    object-fit: fill; /* Para que la imagen ajuste bien */
+    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    border-radius: 50%; /* Asegurar que la imagen sea circular */
+    transition: all 0.3s ease-in-out;
+}
+
+.advisor-img:hover {
+    box-shadow: 0px 12px 16px rgba(0, 0, 0, 0.5);
+}
+
+.encuentra-tu-lugar {
+    position: relative;
+    height: 400px; /* Ajusta la altura según necesites */
+    background-size: cover; /* Para cubrir toda la sección */
+    background-position: right; /* Centra la imagen */
+}
+
+.encuentra-tu-lugar1 {
+    position: relative;
+    height: 400px; /* Ajusta la altura según necesites */
+    background-size: cover; /* Para cubrir toda la sección */
+    background-position: center; /* Centra la imagen */
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 68, 115, 0.6); /* Color #004473 con 60% de transparencia */
+    padding: 40px; /* Espaciado interno */
+}
+
+.titulo {
+    font-size: 2rem; /* Ajusta el tamaño del texto */
+    font-weight: bold;
+}
+
+.subtitulo {
+    font-size: 1.2rem; /* Ajusta el tamaño del subtítulo */
+}
+
+.btnye {
+    color: #fff;
+    background-color: #ffa00a;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: block;
+
+
+}
+
+.btnye:hover {
+    background-color: #ffa00a; /* Color al pasar el ratón */
+    color: #004473; /* Texto en blanco al pasar el ratón */
+}
+
+.contwhite {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.redessociales {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    margin: auto;
+
+}
+
+.sr {
+    text-decoration: none;
+}
+
+ul {
+    line-height: 2.0; /* Ajusta el espacio entre líneas */
+}
+
+.footer-links h5 {
+    margin-bottom: 15px; /* Espaciado entre el título y la lista */
+}
+
+.footer-links a {
+    text-decoration: none; /* Sin subrayado */
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+.ventas-section {
+    background-color: #03669c; /* Fondo azul */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; /* Espacio entre columnas */
+    margin: auto;
+}
+
+.column {
+    flex: 1; /* Cada columna toma el mismo espacio */
+    margin: 0 10px; /* Espaciado horizontal entre columnas */
+}
+
+
+.social-icon {
+    color: #004473; /* Color de los íconos */
+    text-decoration: none; /* Sin subrayado */
+    margin: 0 10px; /* Espacio entre íconos */
+}
+
+.social-icon:hover {
+    opacity: 0.8; /* Efecto al pasar el mouse */
+}
+
+/* Buscar propiedades */
+
+.main-image {
+    width: 100%;
+    height: auto;
+}
+
+.thumbnail {
+    width: 100%;
+    height: auto;
+}
+
+.tipo {
+    padding: 5px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    background-color: #ffa00a; /* Aquí aplicas el color del borde */
+    margin-right: 10px;
+}
+
+.nroid {
+    padding: 5px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    background-color: #004473; /* Aquí aplicas el color del borde */
+    width: 100px;
+}
+
+.tit {
+    font-size: 1.2rem;
+    text-align: start;
+    color: #03669c;
+    font-weight: 600;
+}
+
+.price2 {
+    font-size: 1.2rem;
+    text-align: start;
+    color: #ffa00a;
+    font-weight: 600;
+}
+
+.btnaz {
+    color: #fff;
+    background-color: #2ecc71;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: block;
+
+}
+
+.contacto {
+    border: 2px solid #ffa00a;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px;
+}
+
+.message {
+    display: none;
+}
+
+.cardasesor {
+    margin: 20px;
+    border: #999999;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: all 0.3s ease-in-out; /* Animación de suavidad */
+    padding: 20px;
+}
+
+.btnaz {
+    color: #fff;
+    background-color: #002d4d;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: block;
+
+}
+
+
+.btn-group-custom .btn {
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
+}
+
+.btn-group-custom .btn:hover {
+    background-color: #ffa00a !important;
+    color: white;
+}
+
+.btn-group-custom .btn.active,
+.btn-group-custom .btn:focus {
+    background-color: #ffa00a !important;
+    color: white;
+    border-color: #ffa00a;
+}
+
+/* Conoce el inmueble*/
+.selected-line {
+    height: 0px;
+    background-color: #ffa00a; /* Color amarillo */
+    width: 100%;
+    display: none; /* Oculto por defecto */
+}
+
+.nav-link.active, .nav-link:hover {
+    border-bottom: 2px solid #ffa00a !important; /* Línea amarilla debajo del elemento activo */
+}
+
+.btncon {
+    background-color: transparent !important;
+    color: #002d4d !important;
+    border-radius: 0px !important;
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.btn-cerca {
+    background-color: rgba(255, 160, 10, 0.8); /* Color #ffa00a con 80% de transparencia */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-azul {
+    background-color: #002d4d !important; /* Color #ffa00a con 80% de transparencia */
+    color: white;
+    border: none;
+    padding: 10px 35px !important;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.btn-orange {
+    background-color: #ffa00a !important; /* Color #ffa00a con 80% de transparencia */
+    color: white !important;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.btn-cerca:hover {
+    background-color: #ffa00a; /* Fondo sólido al pasar el ratón */
+}
+
+.ctext::placeholder {
+    color: #fff !important
+}
+
+.btn-custom {
+    color: white !important;
+    border-color: white !important;
+}
+
+.btn-custom:checked {
+    background-color: #ffa00a !important;
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: #ffa00a !important;
+    color: white;
+}
+
+.btn-custom:checked {
+    background-color: #ffa00a !important;
+    color: white;
+}
+
+.btn-group-custom .btn.active {
+    btn-active-bg: #2ecc71 !important;
+}
+
+.btn-custom {
+    --bs-btn-active-bg: #ffa00a; /* Cambia aquí el color del fondo activo */
+    --bs-btn-active-color: white; /* Cambia el color del texto en el estado activo */
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+#details ul {
+    list-style-type: none;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.nav {
+    display: flex; /* Usar flexbox para alinear los elementos en una fila */
+    overflow-x: auto; /* Permite desplazamiento horizontal */
+    white-space: nowrap; /* Evita que los elementos se rompan a la siguiente línea */
+    overflow-x: auto; /* Permite desplazamiento horizontal */
+    white-space: nowrap; /* Evita que los elementos se rompan a la siguiente línea */
+}
+
+.btnaz1 {
+    color: #fff;
+    background-color: #002d4d;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.fotmod {
+    padding: 0;
+}
+
+
+/*buscador principal*/
+.custom-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.vertical-separator {
+    width: 1px;
+    background-color: #5e5a5a !important;
+    height: 70%;
+    align-self: center;
+}
+
+.custom-button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.custom-container input[type="text"],
+.custom-container input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.custom-container button {
+    background-color: #ffa00a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-container button:hover {
+    background-color: #ff8f00;
+}
+
+
+/* asesores */
+
+.icon {
+    color: #666 !important;
+    height: 20px;
+    padding-right: 10px;
+}
+
+/* Buscar propiedades*/
+.card1 {
+    border: #999999;
+    border-radius: 20px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    transition: all 0.3s ease-in-out; /* Animación de suavidad */
+}
+
+.terr1 {
+
+    margin-right: 10px;
+}
+
+.custom-input {
+    border: 2px solid #03669C !important;
+    background-color: white;
+    color: #03669C !important;
+
+
+}
+
+.custom-input::placeholder {
+    color: #03669C !important;
+
+
+}
+
+.custom-button {
+    border: 2px solid #03669C !important; /* Borde de color */
+    background-color: white; /* Fondo blanco */
+    color: #03669C !important; /* Color del texto */
+}
+
+.custom-button:hover {
+    background-color: #03669C !important; /* Fondo al pasar el mouse */
+    color: white !important; /* Color del texto al pasar el mouse */
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.businput {
+    background-image: url('../images/buscar.svg');
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Ajusta la posición del icono */
+    background-size: 20px; /* Ajusta el tamaño del icono */
+    padding-right: 30px; /* Espacio adicional para el texto */
+}
+
+.sinli {
+    text-decoration: none;
+    font-size: small;
+    line-height: 1px;
+}
+
+.ventas-section ul {
+    list-style-type: none;
+    padding: 0; /* Elimina el padding por defecto */
+    margin: 0; /* Elimina el margin por defecto */
+}
+
+/* Ocultar todos los filtros en pantallas grandes */
+#filtro-precios,
+#filtro-busqueda,
+#filtro-tipo,
+#filtro-propiedad,
+#filtro-dormitorios {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+
+    #filtro-precios {
+        display: block; /* Mostrar filtro de precios en pantallas de hasta 1184px */
+    }
+}
+
+
+@media (max-width: 991px) {
+    #filtro-precios {
+        display: block; /* Mantener visible filtro de precios */
+    }
+
+    #filtro-dormitorios {
+        display: block; /* Mostrar filtro de dormitorios en pantallas de hasta 768px */
+    }
+}
+
+@media (max-width: 777px) {
+    #filtro-precios,
+    #filtro-busqueda,
+    #filtro-tipo,
+    #filtro-dormitorios,
+    #filtro-propiedad {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    #filtro-precios,
+    #filtro-busqueda,
+    #filtro-tipo,
+    #filtro-propiedad,
+    #filtro-dormitorios
+    #masfiltros {
+        display: block;
+    }
+}
+
+
+.anchofil {
+    transform: translate3d(-40px, 42px, 0px) !important;
+    min-width: 230% !important;
+    max-height: 600px; /* Ajusta la altura máxima a tu preferencia */
+    overflow-y: auto; /* Permite el scroll vertical */
+}
+
+.btn-outline-primary {
+    color: #004473 !important;
+    border-color: #004473 !important;
+}
+
+.btn-outline-primary:hover {
+    color: #fff !important;
+    border-color: #03669C !important;
+    background-color: #03669C !important;
+}
+
+.btn-outline-primary.active {
+    color: #fff !important;
+    border-color: #03669C !important;
+    background-color: #03669C !important;
+}
+
+.form-check-input:checked {
+    border-color: #03669C !important;
+    background-color: #03669C !important;
+}
+
+.dropdown-item:active {
+    color: #000 !important;
+    background-color: #fff !important;
+}

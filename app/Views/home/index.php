@@ -1,294 +1,352 @@
 <?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
+<!-- PAntallas lg -->
+<section class="banner bio row d-none d-sm-block ">
+	<div class="mx-auto" style="max-width: 1000px;">
+		<div class="container text-center">
+			<h1 class="banner-title fw-semibold pt-4 pb-4">Encuentra el lugar ideal</h1>
+			<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+				<input type="radio" class="btn-check" name="options" id="venta" autocomplete="off" checked>
+				<label class="btn btn-custom" for="venta">Venta</label>
 
-<!-- Hero Section -->
-<section class="hero-section position-relative">
-    <div class="hero-background">
-        <img src="<?= base_url('assets/images/hero-bg.jpg') ?>" alt="Elige Donde" class="w-100 h-100 object-cover">
-        <div class="hero-overlay"></div>
-    </div>
+				<input type="radio" class="btn-check" name="options" id="alquiler" autocomplete="off">
+				<label class="btn btn-custom" for="alquiler">Alquiler</label>
 
-    <div class="hero-content position-absolute top-50 start-50 translate-middle text-center text-white">
-        <h1 class="hero-title display-4 fw-bold mb-4">
-            Nadie en el mundo vende más bienes raíces que Elige Donde
-        </h1>
+				<input type="radio" class="btn-check" name="options" id="anticresis" autocomplete="off">
+				<label class="btn btn-custom" for="anticresis">Anticresis</label>
+			</div>
+		</div>
 
-        <!-- Transaction Type Buttons -->
-        <div class="transaction-buttons mb-4">
-            <button class="btn btn-outline-light me-2 active" data-type="venta">Venta</button>
-            <button class="btn btn-outline-light me-2" data-type="alquiler">Alquiler</button>
-            <button class="btn btn-outline-light" data-type="anticresis">Anticresis</button>
-        </div>
 
-        <!-- Search Form -->
-        <div class="search-form-container">
-            <form id="propertySearchForm" action="<?= base_url('buscar-propiedades') ?>" method="GET" class="bg-white p-4 rounded">
-                <input type="hidden" id="transaction_type" name="transaction_type" value="venta">
+		<div class="custom-container mt-5">
 
-                <div class="row g-3">
-                    <!-- Property Type -->
-                    <div class="col-md-3">
-                        <select name="property_type_id" class="form-select">
-                            <option value="">Todos los Inmuebles</option>
-                            <?php foreach ($property_types as $type): ?>
-                                <option value="<?= $type['id'] ?>"><?= esc($type['name']) ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+			<div class="d-flex align-items-center flex-grow-1 flex-fill">
 
-                    <!-- Location -->
-                    <div class="col-md-3">
-                        <select name="location_id" class="form-select">
-                            <option value="">¿ En Donde la Buscas ?</option>
-                            <?php foreach ($locations as $location): ?>
-                                <option value="<?= $location['id'] ?>">
-                                    <?= esc($location['name']) ?>, <?= esc($location['district']) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+				<!-- Tipo de inmueble -->
+				<div class="custom-button-group" style="width: 22%; padding-left: 5px;">
+					<select id="tipo-inmueble" class="form-select" style="border-color: transparent;" required>
+						<option selected disabled value="">Tipo de inmueble</option>
+                        <?php foreach ($property_types as $type): ?>
+                            <option value="<?= $type['id'] ?>"><?= esc($type['name']) ?></option>
+                        <?php endforeach; ?>
+					</select>
+				</div>
 
-                    <!-- Price Range -->
-                    <div class="col-md-2">
-                        <input type="number" name="price_min" class="form-control" placeholder="Mínimo">
-                    </div>
-                    <div class="col-md-2">
-                        <input type="number" name="price_max" class="form-control" placeholder="Máximo">
-                    </div>
+				<div>
+					<hr class="lineaVertical" width="2px" style="background-color: #0a0a0a; height: 40px;">
+				</div>
 
-                    <!-- Currency -->
-                    <div class="col-md-2">
-                        <select name="currency" class="form-select">
-                            <option value="pen">Soles</option>
-                            <option value="usd">USD</option>
-                        </select>
-                    </div>
-                </div>
+				<!-- Lugar -->
+				<div style="width: 40%;">
+					<input type="text" id="lugar" placeholder="¿En dónde buscas?" class="form-control"
+						   style="border-color: transparent;">
+				</div>
 
-                <div class="row mt-3">
-                    <div class="col-md-6">
-                        <button type="button" class="btn btn-danger w-100" id="searchNearMeBtn">
-                            <i class="fas fa-map-marker-alt me-2"></i>
-                            BUSCAR ALREDEDOR MÍO
-                        </button>
-                    </div>
-                    <div class="col-md-6">
-                        <button type="submit" class="btn btn-danger w-100">
-                            <i class="fas fa-search me-2"></i>
-                            BUSCAR
-                        </button>
-                    </div>
-                </div>
+				<!-- Divider -->
+				<div>
+					<hr class="lineaVertical" style="width: 2px; background-color: #0a0a0a; height: 40px;">
+				</div>
 
-                <div class="row mt-2">
-                    <div class="col-12 text-center">
-                        <a href="#" class="text-dark" data-bs-toggle="collapse" data-bs-target="#moreFilters">
-                            MÁS FILTROS <i class="fas fa-chevron-down"></i>
-                        </a>
-                    </div>
-                </div>
+				<!-- Precio Mínimo -->
+				<div style="width: 17%;">
+					<input type="number" id="precio-min" placeholder="Precio mínimo" class="form-control"
+						   style="border-color: transparent; white-space: nowrap; width: 100%;">
+				</div>
 
-                <!-- More Filters (Collapsed) -->
-                <div class="collapse mt-3" id="moreFilters">
-                    <div class="row g-3">
-                        <div class="col-md-3">
-                            <select name="bedrooms" class="form-select">
-                                <option value="">Habitaciones</option>
-                                <option value="1">1+</option>
-                                <option value="2">2+</option>
-                                <option value="3">3+</option>
-                                <option value="4">4+</option>
-                                <option value="5">5+</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <select name="bathrooms" class="form-select">
-                                <option value="">Baños</option>
-                                <option value="1">1+</option>
-                                <option value="2">2+</option>
-                                <option value="3">3+</option>
-                                <option value="4">4+</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <select name="parking" class="form-select">
-                                <option value="">Estacionamientos</option>
-                                <option value="1">1+</option>
-                                <option value="2">2+</option>
-                                <option value="3">3+</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <input type="text" name="search" class="form-control" placeholder="Palabra clave">
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
+				<div>
+					<hr class="lineaVertical" width="2px" style="background-color: #0a0a0a; height: 40px;">
+				</div>
+
+				<!-- Precio Máximo -->
+				<div style="width: 17%;">
+					<input type="number" id="precio-max" placeholder="Precio máximo" class="form-control"
+						   style="border-color: transparent;">
+				</div>
+			</div>
+
+
+			<!-- Botón Buscar -->
+			<div class=" text-center">
+				<button class="btn-azul rounded-pill" type="button">Buscar</button>
+			</div>
+		</div>
+
+		<div class="mt-5 d-flex gap-3 justify-content-center flex-shrink-1">
+			<button class="btn-cerca">Buscar cerca de mí</button>
+			<button class="btn-cerca">Propiedades recientes</button>
+			<button class="btn-cerca">Bajaron de precio</button>
+		</div>
+
+	</div>
 </section>
 
-<!-- Featured Properties Buttons -->
-<section class="featured-buttons py-3 bg-light">
-    <div class="container text-center">
-        <button class="btn btn-danger me-3">PROPIEDADES RECIENTES</button>
-        <button class="btn btn-outline-danger">BAJARON DE PRECIO</button>
-    </div>
+<!-- PAntallas sm -->
+<section class="d-block d-sm-none  bio banner">
+	<div class="text-center px-2">
+		<h3 class="banner-title">Encuentra el lugar ideal</h3>
+
+		<!-- Selección de tipo de inmueble -->
+		<div class="custom-button-group w-100 mb-3">
+			<select id="tipo-inmueble" class="form-select "
+					style="background-color: #03669c; border-color: transparent; color: #ffffff;">
+				<?php foreach ($property_types as $type): ?>
+                    <option value="<?= $type['id'] ?>"><?= esc($type['name']) ?></option>
+                <?php endforeach; ?>
+			</select>
+		</div>
+
+		<!-- Campo para el lugar -->
+		<div class="w-100 mb-3">
+			<input type="text" id="lugar" placeholder="Elegir dirección" class="form-control ctext"
+				   style=" background-color: #03669c; border-color: transparent;">
+		</div>
+
+		<!-- Campos para el monto y selección de moneda -->
+		<div class="d-flex justify-content-center align-items-center rounded mb-3 text-white" style="max-width: 600px;">
+			<div class="me-3">
+				<input type="number" class="form-control ctext" id="monto-min" placeholder="Monto mínimo"
+					   style="background-color: #03669c; border-color: transparent;">
+			</div>
+			<div class="me-3">
+				<input type="number" class="form-control ctext" id="monto-max" placeholder="Monto máximo"
+					   style="background-color: #03669c; border-color: transparent;">
+			</div>
+			<div class="me-3">
+				<select class="form-select " id="moneda"
+						style="min-width: 100px; background-color: #03669c; border-color: transparent; color: #ffffff;">
+					<option value="soles" style="color: #ffffff;">Soles</option>
+					<option value="dolares" style="color: #ffffff;">Dólares</option>
+				</select>
+			</div>
+		</div>
+
+		<!-- Botones de acción -->
+		<button class="btn-azul w-100 mb-3" onclick="buscarPropiedades()">Buscar</button>
+		<button class="btn btn-orange w-100" onclick="buscarCercaDeMi()">Buscar alrededor mío</button>
+
+	</div>
+
 </section>
 
-<!-- Latest Properties -->
-<section class="latest-properties py-5">
-    <div class="container">
-        <h2 class="text-center mb-5 text-secondary">ÚLTIMAS PROPIEDADES</h2>
+<!-- Banner -->
+<a href="https://api.whatsapp.com/send?phone=51907701031&text=Hola.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20Elige%20Donde."
+   target="_blank">
+	<img src="images/banner-desktop.jpg" alt="" class="w-100 d-none d-md-inline">
+	<img src="images/banner-mobile.jpg" alt="" class="w-100 d-inline d-md-none">
+</a>
 
-        <div class="row">
-            <?php foreach ($featured_properties as $property): ?>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="property-card h-100">
-                        <div class="property-image position-relative">
-                            <?php if ($property['main_image']): ?>
-                                <img src="<?= base_url('assets/images/properties/' . $property['main_image']['image_url']) ?>"
-                                     alt="<?= esc($property['title']) ?>" class="w-100 h-100 object-cover">
+<!-- Últimas Propiedades-->
+<section class="ultimas-propiedades my-1 bio px-4 px-md-5">
+	<div class="text-center mx-auto" style="max-width: 1400px;">
+		<h2 class="section-title">Últimas propiedades</h2>
+		<div class="line"></div>
+		<div class="container-fluid px-0">
+			<div class="row g-5">
+                <?php foreach ($featured_properties as $property): ?>
+				<!-- Card 1 -->
+				<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+					<div class="card position-relative">
+						<!-- Cuadro "Vendido" -->
+						<div class="sold-badge position-absolute w-100 d-flex justify-content-center align-items-center"
+							 style="top: 20%; left: 10px;">
+							<span class="text-center text-danger"
+								  style="border: 4px solid red; padding: 5px 20px; background-color: white; color: red; font-weight: 900; border-radius: 5px; font-size: x-large;">
+								VENDIDO
+							</span>
+						</div>
+						<img src="<?= base_url('uploads/properties/images/' . $property['main_image']['image_url']) ?>" class="card-img-top rounded-top" alt="<?= esc($property['title']) ?>">
+						<div class="card-body">
+							<div class="id-property ">
+								ID: <?= $property['property_code'] ?>
+							</div>
+							<p class="price ">S/ <?= number_format($property['price_pen'], 2) ?> - USD <?= number_format($property['price_usd'], 2) ?></p>
+							<p class="location"><i class="fas fa-map-marker-alt"></i> <?= esc($property['location_name']) ?>, <?= esc($property['district']) ?></p>
+							<hr class="separator">
+							<div class="d-flex justify-content-between">
+								<div class="d-flex">
+									<img src="images/tlibre.svg" alt="Terreno libre" class="icono-area"
+										 style="max-width: 40px !important; padding-right: 10px;">
+									<div class="justify-content-between row" style="color: #666666; font-weight: 600;">
+										<p class="terr" style="display: block;">Área de terreno:</p>
+										<p class="terr" style="color: black; display: block;"><?= number_format($property['land_area']) ?> m²</p>
+									</div>
+								</div>
+								<div class="d-flex">
+									<img src="images/Construction.svg" alt="Terreno libre" class="icono-area"
+										 style="max-width: 40px !important; padding-right: 10px;">
+									<div class="justify-content-between row" style="color: #666666; font-weight: 600;">
+										<p class="terr" style="display: block;">Área de terreno:</p>
+										<p class="terr" style="color: black; display: block;"><?= number_format($property['built_area']) ?> m²</p>
+									</div>
+								</div>
+							</div>
+							<a href="<?= base_url('propiedad/' . $property['property_code']) ?>" class="btn btn-primary mt-3">
+								Conocer
+							</a>
+							<div class="py-4">
+							</div>
+						</div>
+						<div class="advisor mt-2 position-absolute w-100 z-3" style="bottom: -35px;">
+                            <?php if ($property['agent_photo']): ?>
+                                <img src="<?= base_url('assets/images/agents/' . $property['agent_photo']) ?>"
+                                        alt="<?= esc($property['agent_first_name']) ?>"
+                                        class="advisor-img">
                             <?php else: ?>
-                                <img src="<?= base_url('assets/images/property-placeholder.jpg') ?>"
-                                     alt="<?= esc($property['title']) ?>" class="w-100 h-100 object-cover">
+                                <img src="<?= base_url('assets/images/agent-placeholder.jpg') ?>"
+                                        alt="Asesor" class="advisor-img">
                             <?php endif; ?>
+						</div>
+					</div>
+					<div class="py-4">
+					</div>
+				</div>
+                <?php endforeach; ?>
+			</div>
+		</div>
 
-                            <!-- Property ID Badge -->
-                            <div class="property-id">
-                                ID: <?= $property['property_code'] ?>
-                            </div>
+		<p class="mt-4 fs-4 mb-1">
+			Buscar entre más de <span class="text-primary">1,130</span> propiedades
+		</p>
 
-                            <!-- Transaction Type Badge -->
-                            <div class="transaction-type">
-                                <?= strtoupper($property['transaction_type']) ?>
-                            </div>
-                        </div>
+		<div>
+			<a href="<?= base_url('buscar-propiedades') ?>" class="btn btn-primary btn-lg px-4">
+				Ver más propiedades
+			</a>
+		</div>
 
-                        <div class="property-content p-3">
-                            <!-- Price -->
-                            <div class="property-price mb-2">
-                                <span class="price-pen">S/. <?= number_format($property['price_pen'], 2) ?></span>
-                                <?php if ($property['price_usd']): ?>
-                                    <span class="price-usd">USD <?= number_format($property['price_usd'], 2) ?></span>
-                                <?php endif; ?>
-                            </div>
-
-                            <!-- Location -->
-                            <div class="property-location mb-2">
-                                <i class="fas fa-map-marker-alt me-1"></i>
-                                <?= esc($property['location_name']) ?>, <?= esc($property['district']) ?>
-                            </div>
-
-                            <!-- Company -->
-                            <div class="property-company text-muted small mb-3">
-                                RUC: 20020240665<br>
-                                Realty Group S.A.C.
-                            </div>
-
-                            <!-- Property Details -->
-                            <div class="property-details d-flex justify-content-between mb-3">
-                                <?php if ($property['land_area']): ?>
-                                    <div class="detail-item">
-                                        <i class="fas fa-expand-arrows-alt"></i>
-                                        <span>Área Terreno: <?= number_format($property['land_area']) ?> m²</span>
-                                    </div>
-                                <?php endif; ?>
-
-                                <?php if ($property['built_area']): ?>
-                                    <div class="detail-item">
-                                        <i class="fas fa-home"></i>
-                                        <span>Área Construida: <?= number_format($property['built_area']) ?> m²</span>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-
-                            <!-- Agent Info -->
-                            <div class="agent-info d-flex align-items-center">
-                                <div class="agent-photo me-2">
-                                    <?php if ($property['agent_photo']): ?>
-                                        <img src="<?= base_url('assets/images/agents/' . $property['agent_photo']) ?>"
-                                             alt="<?= esc($property['agent_first_name']) ?>"
-                                             class="rounded-circle" width="40" height="40">
-                                    <?php else: ?>
-                                        <img src="<?= base_url('assets/images/agent-placeholder.jpg') ?>"
-                                             alt="Agente" class="rounded-circle" width="40" height="40">
-                                    <?php endif; ?>
-                                </div>
-                                <div class="agent-details">
-                                    <div class="agent-name"><?= esc($property['agent_first_name'] . ' ' . $property['agent_last_name']) ?></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Property Link -->
-                        <a href="<?= base_url('propiedad/' . $property['property_code']) ?>" class="stretched-link"></a>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-
-        <div class="text-center mt-4">
-            <a href="<?= base_url('buscar-propiedades') ?>" class="btn btn-danger btn-lg">
-                Ver Todas las Propiedades
-            </a>
-        </div>
-    </div>
+	</div>
 </section>
 
-<!-- Stats Section -->
-<section class="stats-section py-5 bg-primary text-white">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-md-3 mb-3">
-                <h3 class="display-6 fw-bold"><?= number_format($stats['total_properties']) ?></h3>
-                <p>Propiedades Disponibles</p>
-            </div>
-            <div class="col-md-3 mb-3">
-                <h3 class="display-6 fw-bold"><?= number_format($stats['properties_for_sale']) ?></h3>
-                <p>En Venta</p>
-            </div>
-            <div class="col-md-3 mb-3">
-                <h3 class="display-6 fw-bold"><?= number_format($stats['properties_for_rent']) ?></h3>
-                <p>En Alquiler</p>
-            </div>
-            <div class="col-md-3 mb-3">
-                <h3 class="display-6 fw-bold"><?= number_format($stats['total_agents']) ?></h3>
-                <p>Asesores Especialistas</p>
-            </div>
-        </div>
-    </div>
+<!-- patnallas grandes -->
+<section class="d-none d-sm-block encuentra-tu-lugar bio mx-auto"
+		 style="background-image: url('./images/Banner2.png');">
+	<div style="max-width: 1400px;">
+		<div class="square overlay d-flex flex-column justify-content-end">
+			<div class="container text-white">
+				<h2 class="titulo">ENCUENTRA TU LUGAR IDEAL</h2>
+				<p class="subtitulo">Más de <span style="color: #004473 !important;">3,084</span> Asesores calificados
+					para tu búsqueda.</p>
+				<a href="<?= base_url('contacto') ?>" class="btnye w-100">
+					Contactanos
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="d-none d-sm-block encuentra-tu-lugar bio mx-auto"
+		 style="background-image: url('./images/postula.png'); ">
+	<div style="max-width: 1400px;">
+		<div class="square overlay d-flex flex-column justify-content-end">
+			<div class="container text-white">
+				<h2 class="titulo">NUESTRAS OFICINAS EN TODO EL PERÚ</h2>
+				<p class="subtitulo">Estamos cerca de ti, busca nuestras oficinas</p>
+				<button class="btnye mt-3 w-100">Buscar Oficina</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- pantallas chicas -->
+<section class="d-block d-sm-none encuentra-tu-lugar1 bio"
+		 style="background-image: url('./images/Banner2.png'); object-position: left;">
+	<div class="overlay d-flex flex-column justify-content-end">
+		<div class="text-white">
+			<h2 class="titulo">ENCUENTRA TU LUGAR IDEAL</h2>
+			<p class="subtitulo">Más de <span style="color: #004473 !important;">3,084</span> Asesores calificados para
+				tu búsqueda.</p>
+			<button class="btnye w-100">Contactanos</button>
+		</div>
+	</div>
+</section>
+
+<section class="d-block d-sm-none encuentra-tu-lugar1 bio" style="background-image: url('./images/postula.png');">
+	<div class="overlay d-flex flex-column justify-content-end" max-width: 1400px;>
+		<div class="text-white">
+			<h2 class="titulo">NUESTRAS OFICINAS EN TODO EL PERÚ</h2>
+			<p class="subtitulo">Estamos cerca de ti, busca nuestras oficinas</p>
+			<button class="btnye mt-3 w-100">Buscar Oficina</button>
+		</div>
+	</div>
 </section>
 
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>
 <script>
-// Transaction type buttons
-document.querySelectorAll('.transaction-buttons button').forEach(button => {
-    button.addEventListener('click', function() {
-        // Remove active class from all buttons
-        document.querySelectorAll('.transaction-buttons button').forEach(btn => btn.classList.remove('active'));
+  function buscarCercaDeMi() {
+    alert("Buscando propiedades cerca de tu ubicación...");
+    // Aquí puedes agregar lógica adicional para manejar la búsqueda cerca de la ubicación
+  }
 
-        // Add active class to clicked button
-        this.classList.add('active');
+  function verPropiedadesRecientes() {
+    alert("Mostrando propiedades recientes...");
+    // Aquí puedes agregar lógica adicional para manejar la visualización de propiedades recientes
+  }
 
-        // Update hidden input
-        document.getElementById('transaction_type').value = this.dataset.type;
-    });
-});
+  function verBajaronDePrecio() {
+    alert("Mostrando propiedades que bajaron de precio...");
+    // Aquí puedes agregar lógica adicional para manejar la visualización de propiedades con descuento
+  }
 
-// Search near me functionality
-document.getElementById('searchNearMeBtn').addEventListener('click', function() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            // Here you would implement location-based search
-            alert('Funcionalidad de búsqueda por ubicación en desarrollo');
-        });
-    } else {
-        alert('La geolocalización no está soportada en este navegador');
-    }
-});
+  function buscarPropiedades() {
+    const tipoInmueble = document.getElementById('tipo-inmueble').value;
+    const lugar = document.getElementById('lugar').value;
+    const montoMin = document.getElementById('monto-min').value;
+    const montoMax = document.getElementById('monto-max').value;
+    const moneda = document.getElementById('moneda').value;
+
+    alert(`Buscando ${tipoInmueble} en ${lugar} con un monto entre ${montoMin} y ${montoMax} en ${moneda}`);
+    // Aquí puedes agregar la lógica para realizar la búsqueda con los valores ingresados
+  }
+
+  function buscarCercaDeMi() {
+    alert("Buscando propiedades cerca de tu ubicación actual...");
+    // Aquí puedes agregar la lógica para buscar propiedades cerca del usuario
+  }
+
 </script>
+
+<!-- Social media links div at the mid start of the page -->
+<div class="position-fixed h-100 start-0 d-none d-md-block" style="z-index: 1000; top: 27vh;">
+	<div class="py-3 d-flex gap-2 flex-column align-items-center justify-content-center" style="background-color: #004473; padding: 10px; border-radius: 0 10px 10px 0;">
+		<a href="https://api.whatsapp.com/send?phone=51907701031&text=Hola.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20Elige%20Donde."
+		   target="_blank"
+		   class="rounded-circle text-white position-relative"
+		   style="background-color: white; width: 40px; height: 40px;">
+			<div class="position-absolute d-flex align-items-center justify-content-center h-100 w-100">
+				<i class="fab fa-whatsapp text-primary fs-3"></i>
+			</div>
+		</a>
+
+		<a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.facebook.com/EligeDondeInmobiliaria/%3Flocale%3Des_LA&ved=2ahUKEwirh5Cz5NeLAxVal5UCHSPANEkQFnoECBgQAQ&usg=AOvVaw0ZW2Y-Csj6-cvL98Jm8FH9"
+		   target="_blank"
+		   class="rounded-circle text-white position-relative"
+		   style="background-color: white; width: 40px; height: 40px;">
+			<div class="position-absolute d-flex align-items-center justify-content-center h-100 w-100">
+				<i class="fab fa-facebook-f text-primary fs-5"></i>
+			</div>
+		</a>
+		<a href="https://instagram.com"
+		   target="_blank"
+		   class="rounded-circle text-white position-relative"
+		   style="background-color: white; width: 40px; height: 40px;">
+			<div class="position-absolute d-flex align-items-center justify-content-center h-100 w-100">
+				<i class="fab fa-instagram text-primary fs-4"></i>
+			</div>
+		</a>
+		<a href="https://tiktok.com"
+		   target="_blank"
+		   class="rounded-circle text-white position-relative"
+		   style="background-color: white; width: 40px; height: 40px;">
+			<div class="position-absolute d-flex align-items-center justify-content-center h-100 w-100">
+				<i class="fab fa-tiktok text-primary fs-5"></i>
+			</div>
+		</a>
+		<div class="text-white fw-semibold" style="writing-mode: vertical-lr; transform: rotate(180deg);">
+			Contáctnos ------
+		</div>
+	</div>
+</div>
 <?= $this->endSection() ?>
