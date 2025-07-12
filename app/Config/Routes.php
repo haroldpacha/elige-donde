@@ -88,7 +88,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
     // Gestión de contenido
     $routes->resource('tipos-propiedades', ['controller' => 'PropertyTypes']);
     $routes->resource('ubicaciones', ['controller' => 'Locations']);
-    $routes->resource('caracteristicas', ['controller' => 'Features']);
+    $routes->resource('caracteristicas', ['controller' => 'PropertyFeatures', 'websafe' => 1]);
 
     // Gestión de usuarios administrativos
     $routes->resource('usuarios', ['controller' => 'AdminUsers']);
