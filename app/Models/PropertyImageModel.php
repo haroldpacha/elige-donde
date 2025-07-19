@@ -75,4 +75,17 @@ class PropertyImageModel extends Model
                    ->where('is_main', 1)
                    ->findAll();
     }
+
+    // Obtener múltiples imágenes principales para listado de propiedades
+    public function getImagesForProperties($propertyIds)
+    {
+        if (empty($propertyIds)) {
+            return [];
+        }
+
+        return $this->whereIn('property_id', $propertyIds)
+                    ->orderBy('is_main', 'DESC')
+                    ->orderBy('order_index', 'ASC')
+                   ->findAll();
+    }
 }

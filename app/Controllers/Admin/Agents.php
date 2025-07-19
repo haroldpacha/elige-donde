@@ -242,6 +242,7 @@ class Agents extends BaseController
 
         // Prepare update data
         $updateData = [
+            'id' => $id,
             'first_name' => $this->request->getPost('first_name'),
             'last_name' => $this->request->getPost('last_name'),
             'email' => $this->request->getPost('email'),

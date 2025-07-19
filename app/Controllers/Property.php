@@ -65,15 +65,29 @@ class Property extends BaseController
         // Obtener imágenes principales
         if (!empty($properties)) {
             $propertyIds = array_column($properties, 'id');
-            $mainImages = $this->propertyImageModel->getMainImagesForProperties($propertyIds);
+            $mainImages = $this->propertyImageModel->getImagesForProperties($propertyIds);
 
             $imagesByProperty = [];
             foreach ($mainImages as $image) {
-                $imagesByProperty[$image['property_id']] = $image;
+                $imagesByProperty[$image['property_id']][] = $image;
             }
 
+            $propertyAgentModel = new \App\Models\PropertyAgentModel();
+
             foreach ($properties as &$property) {
-                $property['main_image'] = $imagesByProperty[$property['id']] ?? null;
+                $property['images'] = $imagesByProperty[$property['id']] ?? null;
+
+                // Obtener agente principal para compatibilidad con el código existente
+                $primaryAgent = $propertyAgentModel->getPrimaryAgent($property['id']);
+                if ($primaryAgent) {
+                    $property['agent_first_name'] = $primaryAgent['first_name'];
+                    $property['agent_last_name'] = $primaryAgent['last_name'];
+                    $property['agent_photo'] = $primaryAgent['photo'];
+                    $property['agent_phone'] = $primaryAgent['phone'];
+                    $property['agent_cell_phone'] = $primaryAgent['cell_phone'];
+                    $property['agent_email'] = $primaryAgent['email'];
+                    $property['primary_agent'] = $primaryAgent;
+                }
             }
         }
 

@@ -23,9 +23,10 @@ class AgentModel extends Model
     protected $updatedField = 'updated_at';
 
     protected $validationRules = [
+        'id' => 'permit_empty',
         'first_name' => 'required|max_length[50]',
         'last_name' => 'required|max_length[50]',
-        'email' => 'required|valid_email|max_length[100]|is_unique[agents.email]',
+        'email' => 'required|valid_email|max_length[100]|is_unique[agents.email,id,{id}]',
         'phone' => 'permit_empty|max_length[20]',
         'cell_phone' => 'permit_empty|max_length[20]'
     ];

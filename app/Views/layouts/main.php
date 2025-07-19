@@ -34,13 +34,13 @@
 		<!-- Menú en pantallas de escritorio -->
 		<nav class="desktop-menu">
 			<ul class="nav">
-				<li><a class="nav-link text-white active" href="<?= base_url() ?>">INICIO</a></li>
+				<li><a class="nav-link text-white<?= uri_string() == '' ? ' active' : '' ?>" href="<?= base_url() ?>">INICIO</a></li>
 				<hr class="my-2">
-				<li><a class="nav-link text-white" href="<?= base_url('buscar-propiedades') ?>">BUSCAR PROPIEDADES</a></li>
+				<li><a class="nav-link text-white<?= strpos(uri_string(), 'buscar-propiedades') !== false ? ' active' : '' ?>"" href="<?= base_url('buscar-propiedades') ?>">BUSCAR PROPIEDADES</a></li>
 				<hr class="my-2">
-				<li><a class="nav-link text-white" href="<?= base_url('asesores') ?>">ASESORES</a></li>
+				<li><a class="nav-link text-white<?= strpos(uri_string(), 'asesores') !== false ? ' active' : '' ?>"" href="<?= base_url('asesores') ?>">ASESORES</a></li>
 				<hr class="my-2">
-				<li><a class="nav-link text-white" href="<?= base_url('contacto') ?>">CONTACTANOS</a></li>
+				<li><a class="nav-link text-white<?= strpos(uri_string(), 'contacto') !== false ? ' active' : '' ?>"" href="<?= base_url('contacto') ?>">CONTACTANOS</a></li>
 			</ul>
 		</nav>
 
