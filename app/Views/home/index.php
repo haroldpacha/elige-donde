@@ -206,7 +206,7 @@
 		</div>
 
 		<p class="mt-4 fs-4 mb-1">
-			Buscar entre más de <span class="text-primary">1,130</span> propiedades
+			Buscar entre más de <span class="text-primary"><?= esc($stats['total_properties'] ?? '0') ?></span> propiedades
 		</p>
 
 		<div>
