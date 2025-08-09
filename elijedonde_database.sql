@@ -204,3 +204,12 @@ CREATE TABLE property_documents (
 INSERT INTO admin_users (first_name, last_name, email, password, role) VALUES
 ('Admin', 'Elige Donde', 'admin@remax-peru.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
 -- Contraseña: password
+
+
+CREATE TABLE settings (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  setting_key VARCHAR ( 100 ) UNIQUE NOT NULL,
+  setting_value TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
+);

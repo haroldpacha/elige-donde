@@ -51,6 +51,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
     $routes->get('dashboard', 'Dashboard::index');
     $routes->get('analiticas', 'Dashboard::analytics');
     $routes->get('configuracion', 'Dashboard::settings');
+    $routes->post('configuracion/guardar', 'Dashboard::saveSettings');
     $routes->get('actividad', 'Dashboard::activityLog');
 
     // Gestión de propiedades

@@ -9,6 +9,7 @@ use App\Models\AdminUserModel;
 use App\Models\PropertyDocumentModel;
 use App\Models\InquiryModel;
 use App\Models\PropertyAgentModel;
+use App\Models\SettingModel;
 
 class Dashboard extends BaseController
 {
@@ -213,11 +214,29 @@ class Dashboard extends BaseController
             return $authCheck;
         }
 
-        $data = [
-            'title' => 'Configuración del Sistema - Admin Elige Donde'
-        ];
+        $settingModel = new SettingModel();
+        $data['title'] = 'Configuración del Sistema - Admin Elige Donde';
+        $data['settings'] = $settingModel->getSettings();
 
         return view('admin/dashboard/settings', $data);
+    }
+
+    public function saveSettings()
+    {
+        $settingModel = new SettingModel();
+        $settings = $this->request->getPost();
+
+        // Handle file upload for the logo
+        $logoFile = $this->request->getFile('company_logo');
+        if ($logoFile && $logoFile->isValid() && !$logoFile->hasMoved()) {
+            $newName = $logoFile->getRandomName();
+            $logoFile->move(FCPATH . 'uploads/settings', $newName);
+            $settings['company_logo'] = $newName;
+        }
+
+        $settingModel->saveSettings($settings);
+
+        return redirect()->to('/admin/configuracion')->with('success', 'Configuración guardada exitosamente.');
     }
 
     // Activity log
