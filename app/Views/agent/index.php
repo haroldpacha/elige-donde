@@ -16,8 +16,7 @@
 					<div class="card position-relative">
 						<div class="card-body bio">
 							<div class="advisor mt-2 w-100">
-								<img src="images/asesor1.png
-                                    " class="advisor1-img" alt="Asesor">
+								<img src="<?= base_url('assets/images/agents/'. $agent['photo']) ?>" class="advisor1-img" alt="Asesor">
 							</div>
 
 							<p class="text-center larger mt-2 mx-auto "
@@ -55,7 +54,7 @@
 								</p>
 							</div>
 
-							<button class="btnaz mt-3 w-100">Ver propiedades</button>
+							<a href="<?= base_url('buscar-propiedades') ?>?agent_id=<?= esc($agent['id']) ?>" class="btnaz mt-3 w-100">Ver propiedades</a>
 
 						</div>
 					</div>

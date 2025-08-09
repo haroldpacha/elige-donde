@@ -8,6 +8,21 @@ use Config\Paths;
  * CHECK PHP VERSION
  *---------------------------------------------------------------
  */
+function word_limiter($str, $limit = 100, $end = '...') {
+    if (trim($str) === '') {
+        return '';
+    }
+
+    $words = explode(' ', $str, $limit + 1);
+    if (count($words) > $limit) {
+        array_pop($words);
+        $str = implode(' ', $words) . $end;
+    } else {
+        $str = implode(' ', $words);
+    }
+
+    return $str;
+}
 
 $minPhpVersion = '8.1'; // If you update this, don't forget to update `spark`.
 if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {

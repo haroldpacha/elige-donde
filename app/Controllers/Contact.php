@@ -11,35 +11,38 @@ class Contact extends BaseController
 
     public function send()
     {
+        $validation = \Config\Services::validation();
+
         $rules = [
             'name'    => 'required|min_length[3]|max_length[100]',
             'email'   => 'required|valid_email',
-            'message' => 'required|min_length[10]',
+            'comment' => 'required|min_length[10]',
         ];
 
-        if (! $this->validate($rules)) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        if (!$validation->setRules($rules)->run($this->request->getPost())) {
+            return redirect()->to('/contacto')->withInput()->with('errors', $validation->getErrors());
         }
 
-        // Simular envío de correo
-        $name    = $this->request->getPost('name');
-        $email   = $this->request->getPost('email');
-        $message = $this->request->getPost('message');
+        // Recoger todos los datos del formulario
+        $name            = $this->request->getPost('name');
+        $email           = $this->request->getPost('email');
+        $message         = $this->request->getPost('comment');
+        $documentId      = $this->request->getPost('document_id');
+        $cellphoneNumber = $this->request->getPost('cellphone_number');
+        $subject         = $this->request->getPost('subject');
 
-        // Aquí iría la lógica real para enviar el correo, por ejemplo, usando la clase Email de CodeIgniter
-        // $emailService = \Config\Services::email();
-        // $emailService->setTo('info@tudominio.com');
-        // $emailService->setFrom($email, $name);
-        // $emailService->setSubject('Mensaje de Contacto desde el sitio web');
-        // $emailService->setMessage($message);
-        // if ($emailService->send()) {
-        //     return redirect()->to('/contacto')->with('message', 'Tu mensaje ha sido enviado con éxito.');
-        // } else {
-        //     return redirect()->back()->withInput()->with('error', 'Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.');
-        // }
+        // Simular envío de correo (puedes agregar los datos extra al mensaje)
+        $logMsg = "Mensaje de contacto recibido:\n" .
+            "Nombre: $name\n" .
+            "Email: $email\n" .
+            "Documento: $documentId\n" .
+            "Celular: $cellphoneNumber\n" .
+            "Tipo de consulta: $subject\n" .
+            "Mensaje: $message";
+        log_message('info', $logMsg);
 
-        // Para propósitos de demostración, solo mostraremos un mensaje de éxito
-        log_message('info', 'Mensaje de contacto recibido de ' . $name . ' (' . $email . '): ' . $message);
+        // Aquí iría la lógica real para enviar el correo, incluyendo los datos extra si lo deseas
+        // ...existing code...
 
         return redirect()->to('/contacto')->with('message', 'Tu mensaje ha sido enviado con éxito. Nos pondremos en contacto contigo pronto.');
     }

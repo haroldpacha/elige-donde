@@ -58,13 +58,13 @@
 					<span class="text-secondary fw-extrabold fs-1">tu consulta</span>
 				</h2>
 				<div class="mt-4">
-					<form class="consulta-box" id="contactForm" enctype="multipart/form-data" action="/contacto" method="post" required>
-                        <?= csrf_field() ?>
+					<form class="consulta-box" id="contactForm" action="/contacto" method="post" required>
+						<?= csrf_field() ?>
 						<div class="container-fluid px-0">
 							<div class="row g-4">
 								<div class="col-12 col-sm-6">
 									<div class="form-floating">
-										<input type="text" class="form-control" id="fullName" name="full_name"
+										<input type="text" class="form-control" id="fullName" name="name"
 											   placeholder="Nombre y Apellido" required>
 										<label for="fullName">Nombre Completo:</label>
 									</div>
@@ -99,7 +99,7 @@
 								</div>
 								<div class="col-12">
 									<div class="form-floating">
-                                            <textarea class="form-control" placeholder="Escribe aquí tus comentarios..."
+											<textarea class="form-control" placeholder="Escribe aquí tus comentarios..."
 													  id="comment" name="comment" style="height: 100px"
 													  required></textarea>
 										<label for="comment" class="form-label">Escribe aquí tus
@@ -126,10 +126,33 @@
 							</div>
 						</div>
 					</form>
+					<script>
+	// Habilitar el botón de envío solo si el checkbox está marcado
+	document.addEventListener('DOMContentLoaded', function() {
+		const checkbox = document.getElementById('flexCheckDefault');
+		const submitBtn = document.getElementById('submitBtn');
+		checkbox.addEventListener('change', function() {
+			submitBtn.disabled = !checkbox.checked;
+		});
+	});
+</script>
 				</div>
-				<div class="message">
-					<h4>Tu consulta ha sido enviada exitosamente. Nos pondremos en contacto contigo pronto.</h4>
-				</div>
+			   <?php if (session('message')): ?>
+			   <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+				  <?= session('message') ?>
+				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			   </div>
+			   <?php endif; ?>
+			   <?php if (session('errors')): ?>
+			   <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+				  <ul class="mb-0">
+				  <?php foreach(session('errors') as $error): ?>
+					 <li><?= esc($error) ?></li>
+				  <?php endforeach; ?>
+				  </ul>
+				  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			   </div>
+			   <?php endif; ?>
 			</div>
 		</div>
 
