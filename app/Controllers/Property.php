@@ -49,7 +49,8 @@ class Property extends BaseController
             'currency' => $request->getGet('currency') ?: 'pen',
             'bedrooms' => $request->getGet('bedrooms'),
             'bathrooms' => $request->getGet('bathrooms'),
-            'search' => $request->getGet('search')
+            'search' => $request->getGet('search'),
+            'agent_id' => $request->getGet('agent_id') // <-- Nuevo filtro
         ];
 
         // Limpiar filtros vacíos

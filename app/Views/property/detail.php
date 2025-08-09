@@ -279,7 +279,7 @@
 													 style="padding-left: 10px;">
 											</a>
 										</div>
-										<button class="btnaz mt-3 w-100">Propiedad del asesor</button>
+										<button onclick="document.location='<?= base_url('buscar-propiedades') ?>?agent_id=<?= esc($agent['agent_id']) ?>'" class="btnaz mt-3 w-100">Propiedad del asesor</button>
 									</div>
 								</div>
 							</div>

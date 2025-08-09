@@ -147,6 +147,12 @@ class PropertyModel extends Model
             $builder->where('properties.location_id', $filters['location_id']);
         }
 
+        // Filtro por agente
+        if (!empty($filters['agent_id'])) {
+            $builder->join('property_agent', 'property_agent.property_id = properties.id', 'inner')
+                    ->where('property_agent.agent_id', $filters['agent_id']);
+        }
+
         // Filtro por rango de precios
         if (!empty($filters['price_min'])) {
             $currency = $filters['currency'] ?? 'pen';
