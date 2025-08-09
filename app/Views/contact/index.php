@@ -18,9 +18,7 @@
 								Dirección
 							</h3>
 							<p class="fs-5 mb-0 text-dark">
-								Asoc. San Francisco Mz. 116 Lt. 01 esquina
-								Av. Municipal c/ Calle Los Álamos - Distr.
-								Gregorio Albarracín Lanchipa Tacna, Peru
+								<?= esc($settings['company_address'] ?? '') ?>
 							</p>
 						</div>
 					</div>
@@ -33,7 +31,7 @@
 								N° de celular
 							</h3>
 							<p class="fs-5 mb-0 text-dark">
-								915 292 959
+								<?= esc($settings['company_phone'] ?? '') ?>
 							</p>
 						</div>
 					</div>
@@ -46,7 +44,7 @@
 								Correo
 							</h3>
 							<p class="fs-5 mb-0 text-dark">
-								eligedonde@gmail.com
+								<?= esc($settings['company_email'] ?? '') ?>
 							</p>
 						</div>
 					</div>

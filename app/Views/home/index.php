@@ -130,7 +130,7 @@
 </section>
 
 <!-- Banner -->
-<a href="https://api.whatsapp.com/send?phone=51907701031&text=Hola.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20Elige%20Donde."
+<a href="https://api.whatsapp.com/send?phone=<?= esc($settings['social_whatsapp'] ?? '') ?>&text=Hola.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20Elige%20Donde."
    target="_blank">
 	<img src="images/banner-desktop.jpg" alt="" class="w-100 d-none d-md-inline">
 	<img src="images/banner-mobile.jpg" alt="" class="w-100 d-inline d-md-none">
@@ -311,7 +311,7 @@
 <!-- Social media links div at the mid start of the page -->
 <div class="position-fixed h-100 start-0 d-none d-md-block" style="z-index: 1000; top: 27vh;">
 	<div class="py-3 d-flex gap-2 flex-column align-items-center justify-content-center" style="background-color: #004473; padding: 10px; border-radius: 0 10px 10px 0;">
-		<a href="https://api.whatsapp.com/send?phone=51907701031&text=Hola.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20Elige%20Donde."
+		<a href="https://api.whatsapp.com/send?phone=<?= esc($settings['social_whatsapp'] ?? '') ?>&text=Hola.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20Elige%20Donde."
 		   target="_blank"
 		   class="rounded-circle text-white position-relative"
 		   style="background-color: white; width: 40px; height: 40px;">
@@ -320,7 +320,7 @@
 			</div>
 		</a>
 
-		<a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.facebook.com/EligeDondeInmobiliaria/%3Flocale%3Des_LA&ved=2ahUKEwirh5Cz5NeLAxVal5UCHSPANEkQFnoECBgQAQ&usg=AOvVaw0ZW2Y-Csj6-cvL98Jm8FH9"
+		<a href="<?= esc($settings['social_facebook'] ?? '') ?>"
 		   target="_blank"
 		   class="rounded-circle text-white position-relative"
 		   style="background-color: white; width: 40px; height: 40px;">
@@ -328,7 +328,7 @@
 				<i class="fab fa-facebook-f text-primary fs-5"></i>
 			</div>
 		</a>
-		<a href="https://instagram.com"
+		<a href="<?= esc($settings['social_instagram'] ?? '') ?>"
 		   target="_blank"
 		   class="rounded-circle text-white position-relative"
 		   style="background-color: white; width: 40px; height: 40px;">
@@ -336,7 +336,7 @@
 				<i class="fab fa-instagram text-primary fs-4"></i>
 			</div>
 		</a>
-		<a href="https://tiktok.com"
+		<a href="<?= esc($settings['social_tiktok'] ?? '') ?>"
 		   target="_blank"
 		   class="rounded-circle text-white position-relative"
 		   style="background-color: white; width: 40px; height: 40px;">
@@ -345,7 +345,7 @@
 			</div>
 		</a>
 		<div class="text-white fw-semibold" style="writing-mode: vertical-lr; transform: rotate(180deg);">
-			Contáctnos ------
+			Contáctanos ------
 		</div>
 	</div>
 </div>

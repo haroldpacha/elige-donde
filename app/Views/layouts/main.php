@@ -96,19 +96,19 @@
 	<div class="mx-auto" style="max-width: 1400px;">
 		<div class="container row mx-auto " style="margin-top: -20px;">
 			<div class="redessociales text-center " style="width: auto;">
-				<a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.facebook.com/EligeDondeInmobiliaria/%3Flocale%3Des_LA&ved=2ahUKEwirh5Cz5NeLAxVal5UCHSPANEkQFnoECBgQAQ&usg=AOvVaw0ZW2Y-Csj6-cvL98Jm8FH9" target="_blank" aria-label="Facebook" class="social-icon">
+				<a href="<?= esc($settings['social_facebook'] ?? '') ?>" target="_blank" aria-label="Facebook" class="social-icon">
 					<img src="<?= base_url('images/facebook.svg') ?>" alt="redessociale" class="icono-rs"
 						 style="max-width: 26px !important; padding-right: 10px;">
 				</a>
-				<a href="https://www.youtube.com" target="_blank" aria-label="YouTube" class="social-icon">
+				<a href="<?= esc($settings['social_youtube'] ?? '') ?>" target="_blank" aria-label="YouTube" class="social-icon">
 					<img src="<?= base_url('images/Youtube.svg') ?>" alt="redessociale" class="icono-rs"
 						 style="max-width: 40px !important; padding-right: 10px;">
 				</a>
-				<a href="https://twitter.com" target="_blank" aria-label="Twitter" class="social-icon">
+				<a href="<?= esc($settings['social_twitter'] ?? '') ?>" target="_blank" aria-label="Twitter" class="social-icon">
 					<img src="<?= base_url('images/Twitter.svg') ?>" alt="redessociale" class="icono-rs"
 						 style="max-width: 40px !important; padding-right: 10px;">
 				</a>
-				<a href="https://www.instagram.com" target="_blank" aria-label="Instagram" class="social-icon">
+				<a href="<?= esc($settings['social_instagram'] ?? '') ?>" target="_blank" aria-label="Instagram" class="social-icon">
 					<img src="<?= base_url('images/Instagram.svg') ?>" alt="redessociale" class="icono-rs"
 						 style="max-width: 40px !important; padding-right: 10px;">
 				</a>
@@ -143,7 +143,7 @@
 						 style="max-width: 40px !important; padding-right: 10px;">
 					<div class="justify-content-between row " style=" font-weight: 400;">
 						<p class="info text-white" style="display: block;">Telefono:</p>
-						<p class="info" style="color: #004473; display: block;">(51) 915 292959</p>
+						<p class="info" style="color: #004473; display: block;"><?= esc($settings['company_phone'] ?? '') ?></p>
 					</div>
 				</div>
 				<div class="d-flex align-items-center">
@@ -151,7 +151,7 @@
 						 style="max-width: 40px !important; padding-right: 10px;">
 					<div class="justify-content-between row" style="font-weight: 400;">
 						<p class="info text-white" style="display: block;">Email:</p>
-						<p class="info" style="color: #004473; display: block;">contacto@eligedonde.com</p>
+						<p class="info" style="color: #004473; display: block;"><?= esc($settings['company_email'] ?? '') ?></p>
 					</div>
 				</div>
 
