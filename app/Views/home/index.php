@@ -27,9 +27,9 @@
 				<div class="custom-button-group" style="width: 22%; padding-left: 5px;">
 					<select id="tipo-inmueble" class="form-select" style="border-color: transparent;" required>
 						<option selected disabled value="">Tipo de inmueble</option>
-                        <?php foreach ($property_types as $type): ?>
-                            <option value="<?= $type['id'] ?>"><?= esc($type['name']) ?></option>
-                        <?php endforeach; ?>
+						<?php foreach ($property_types as $type): ?>
+							<option value="<?= $type['id'] ?>"><?= esc($type['name']) ?></option>
+						<?php endforeach; ?>
 					</select>
 				</div>
 
@@ -68,7 +68,7 @@
 
 			<!-- Botón Buscar -->
 			<div class=" text-center">
-				<button class="btn-azul rounded-pill" type="button">Buscar</button>
+				<button class="btn-azul rounded-pill" type="button" onclick="buscarPropiedadesDesktop()">Buscar</button>
 			</div>
 		</div>
 
@@ -91,8 +91,8 @@
 			<select id="tipo-inmueble" class="form-select "
 					style="background-color: #03669c; border-color: transparent; color: #ffffff;">
 				<?php foreach ($property_types as $type): ?>
-                    <option value="<?= $type['id'] ?>"><?= esc($type['name']) ?></option>
-                <?php endforeach; ?>
+					<option value="<?= $type['id'] ?>"><?= esc($type['name']) ?></option>
+				<?php endforeach; ?>
 			</select>
 		</div>
 
@@ -143,7 +143,7 @@
 		<div class="line"></div>
 		<div class="container-fluid px-0">
 			<div class="row g-5">
-                <?php foreach ($featured_properties as $property): ?>
+				<?php foreach ($featured_properties as $property): ?>
 				<!-- Card 1 -->
 				<div class="col-12 col-sm-6 col-md-4 col-lg-3">
 					<div class="card position-relative">
@@ -188,20 +188,20 @@
 							</div>
 						</div>
 						<div class="advisor mt-2 position-absolute w-100 z-3" style="bottom: -35px;">
-                            <?php if ($property['agent_photo']): ?>
-                                <img src="<?= base_url('assets/images/agents/' . $property['agent_photo']) ?>"
-                                        alt="<?= esc($property['agent_first_name']) ?>"
-                                        class="advisor-img">
-                            <?php else: ?>
-                                <img src="<?= base_url('assets/images/agent-placeholder.jpg') ?>"
-                                        alt="Asesor" class="advisor-img">
-                            <?php endif; ?>
+							<?php if ($property['agent_photo']): ?>
+								<img src="<?= base_url('assets/images/agents/' . $property['agent_photo']) ?>"
+										alt="<?= esc($property['agent_first_name']) ?>"
+										class="advisor-img">
+							<?php else: ?>
+								<img src="<?= base_url('assets/images/agent-placeholder.jpg') ?>"
+										alt="Asesor" class="advisor-img">
+							<?php endif; ?>
 						</div>
 					</div>
 					<div class="py-4">
 					</div>
 				</div>
-                <?php endforeach; ?>
+				<?php endforeach; ?>
 			</div>
 		</div>
 
@@ -275,37 +275,56 @@
 
 <?= $this->section('scripts') ?>
 <script>
+  function buscarPropiedadesDesktop() {
+	// Obtener valores de los filtros
+	const tipoInmueble = document.getElementById('tipo-inmueble').value;
+	const lugar = document.getElementById('lugar').value;
+	const precioMin = document.getElementById('precio-min').value;
+	const precioMax = document.getElementById('precio-max').value;
+	// Obtener opción de transacción seleccionada
+	let transactionType = '';
+	if (document.getElementById('venta').checked) transactionType = 'venta';
+	else if (document.getElementById('alquiler').checked) transactionType = 'alquiler';
+	else if (document.getElementById('anticresis').checked) transactionType = 'anticresis';
+
+	// Construir la URL de búsqueda
+	let url = 'buscar-propiedades?';
+	const params = [];
+	if (tipoInmueble) params.push('property_type_id=' + encodeURIComponent(tipoInmueble));
+	if (lugar) params.push('search=' + encodeURIComponent(lugar));
+	if (precioMin) params.push('price_min=' + encodeURIComponent(precioMin));
+	if (precioMax) params.push('price_max=' + encodeURIComponent(precioMax));
+	if (transactionType) params.push('transaction_type=' + encodeURIComponent(transactionType));
+
+	// Redirigir a la página de resultados
+	window.location.href = url + params.join('&');
+  }
+
   function buscarCercaDeMi() {
-    alert("Buscando propiedades cerca de tu ubicación...");
-    // Aquí puedes agregar lógica adicional para manejar la búsqueda cerca de la ubicación
+	alert("Buscando propiedades cerca de tu ubicación...");
+	// Aquí puedes agregar lógica adicional para manejar la búsqueda cerca de la ubicación
   }
 
   function verPropiedadesRecientes() {
-    alert("Mostrando propiedades recientes...");
-    // Aquí puedes agregar lógica adicional para manejar la visualización de propiedades recientes
+	alert("Mostrando propiedades recientes...");
+	// Aquí puedes agregar lógica adicional para manejar la visualización de propiedades recientes
   }
 
   function verBajaronDePrecio() {
-    alert("Mostrando propiedades que bajaron de precio...");
-    // Aquí puedes agregar lógica adicional para manejar la visualización de propiedades con descuento
+	alert("Mostrando propiedades que bajaron de precio...");
+	// Aquí puedes agregar lógica adicional para manejar la visualización de propiedades con descuento
   }
 
   function buscarPropiedades() {
-    const tipoInmueble = document.getElementById('tipo-inmueble').value;
-    const lugar = document.getElementById('lugar').value;
-    const montoMin = document.getElementById('monto-min').value;
-    const montoMax = document.getElementById('monto-max').value;
-    const moneda = document.getElementById('moneda').value;
+	const tipoInmueble = document.getElementById('tipo-inmueble').value;
+	const lugar = document.getElementById('lugar').value;
+	const montoMin = document.getElementById('monto-min').value;
+	const montoMax = document.getElementById('monto-max').value;
+	const moneda = document.getElementById('moneda').value;
 
-    alert(`Buscando ${tipoInmueble} en ${lugar} con un monto entre ${montoMin} y ${montoMax} en ${moneda}`);
-    // Aquí puedes agregar la lógica para realizar la búsqueda con los valores ingresados
+	alert(`Buscando ${tipoInmueble} en ${lugar} con un monto entre ${montoMin} y ${montoMax} en ${moneda}`);
+	// Aquí puedes agregar la lógica para realizar la búsqueda con los valores ingresados
   }
-
-  function buscarCercaDeMi() {
-    alert("Buscando propiedades cerca de tu ubicación actual...");
-    // Aquí puedes agregar la lógica para buscar propiedades cerca del usuario
-  }
-
 </script>
 
 <!-- Social media links div at the mid start of the page -->
