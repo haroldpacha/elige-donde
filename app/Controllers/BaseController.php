@@ -58,6 +58,11 @@ abstract class BaseController extends Controller
         // Load SettingModel and share settings with all views
         $settingModel = new \App\Models\SettingModel();
         $settings = $settingModel->getSettings();
+
+        $locationModel = new \App\Models\LocationModel();
+        $locations = $locationModel->getLocationsByDepartment('Tacna');
+
         service('renderer')->setData(['settings' => $settings]);
+        service('renderer')->setData(['locations_of_tacna' => $locations]);
     }
 }

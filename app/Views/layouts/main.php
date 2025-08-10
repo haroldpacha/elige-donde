@@ -163,57 +163,32 @@
 
 <section style="background-color:  #03669c;">
 	<div class="ventas-section" style="max-width: 1400px; text-align: start; ">
-		<div class="column col-lg-4 col-md-6 col-12 text-white smaller" style="text-align: start; ">
+		<?php
+		// Dividir $locations en 3 columnas
+		$total = count($locations_of_tacna ?? []);
+		$perColumn = ceil($total / 3);
+		$columns = [[], [], []];
+		if (!empty($locations_of_tacna)) {
+			foreach ($locations_of_tacna as $i => $loc) {
+				$columns[floor($i / $perColumn)][] = $loc;
+			}
+		}
+		?>
+		<?php for ($col = 0; $col < 3; $col++): ?>
+		<div class="column col-lg-4 col-md-6 col-12 text-white smaller" style="text-align: start;">
 			<ul>
-				<li><a href="#" class="text-white sinli">Venta de departamento en Tacna</a></li>
-				<li><a href="#" class="text-white sinli">Venta de departamento en Alto de Alianza</a></li>
-				<li><a href="#" class="text-white sinli">Venta de departamento en Palca</a></li>
-				<li><a href="#" class="text-white sinli">Venta de departamento en Calana</a></li>
-				<li><a href="#" class="text-white sinli">Venta de departamento en Ciudad Nueva</a></li>
-				<li><a href="#" class="text-white sinli">Venta de departamento en Coronel Gregorio Albarracín
-					Lanchipa</a></li>
-				<li><a href="#" class="text-white sinli">Venta de departamento en Inclán</a></li>
-				<li><a href="#" class="text-white sinli">Venta de departamento en La Yarada - Los Palos</a></li>
-				<li><a href="#" class="text-white sinli">Venta de departamento en Pachía</a></li>
-				<li><a href="#" class="text-white sinli">Venta de departamento en Pocollay</a></li>
-				<li><a href="#" class="text-white sinli">Venta de departamento en Sama</a></li>
+				<?php foreach ($columns[$col] as $loc): ?>
+					<li>
+						<a href="<?= base_url('buscar-propiedades?location_id=' . $loc['id']) ?>" class="text-white sinli">
+							Venta de departamento en <?= esc($loc['name']) ?>
+						</a>
+					</li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
-
-		<div class="column col-lg-4 col-md-6 col-12 text-white smaller" style="text-align: start">
-			<ul>
-				<li><a href="#" class="text-white sinli">Alquiler de departamento en Tacna</a></li>
-				<li><a href="#" class="text-white sinli">Alquiler de departamento en Alto de Alianza</a></li>
-				<li><a href="#" class="text-white sinli">Alquiler de departamento en Palca</a></li>
-				<li><a href="#" class="text-white sinli">Alquiler de departamento en Calana</a></li>
-				<li><a href="#" class="text-white sinli">Alquiler de departamento en Ciudad Nueva</a></li>
-				<li><a href="#" class="text-white sinli">Alquiler de departamento en Coronel Gregorio Albarracín
-					Lanchipa</a></li>
-				<li><a href="#" class="text-white sinli">Alquiler de departamento en Inclán</a></li>
-				<li><a href="#" class="text-white sinli">Alquiler de departamento en La Yarada - Los Palos</a></li>
-				<li><a href="#" class="text-white sinli">Alquiler de departamento en Pachía</a></li>
-				<li><a href="#" class="text-white sinli">Alquiler de departamento en Pocollay</a></li>
-				<li><a href="#" class="text-white sinli">Alquiler de departamento en Sama</a></li>
-			</ul>
-		</div>
-
-		<div class="column col-lg-4 col-md-6 col-12 text-white smaller" style="text-align: start">
-			<ul>
-				<li><a href="#" class="text-white sinli">Venta de casa en Tacna</a></li>
-				<li><a href="#" class="text-white sinli">Venta de casa en Alto de Alianza</a></li>
-				<li><a href="#" class="text-white sinli">Venta de casa en Palca</a></li>
-				<li><a href="#" class="text-white sinli">Venta de casa en Calana</a></li>
-				<li><a href="#" class="text-white sinli">Venta de casa en Ciudad Nueva</a></li>
-				<li><a href="#" class="text-white sinli">Venta de casa en Coronel Gregorio Albarracín Lanchipa</a></li>
-				<li><a href="#" class="text-white sinli">Venta de casa en Inclán</a></li>
-				<li><a href="#" class="text-white sinli">Venta de casa en La Yarada - Los Palos</a></li>
-				<li><a href="#" class="text-white sinli">Venta de casa en Pachía</a></li>
-				<li><a href="#" class="text-white sinli">Venta de casa en Pocollay</a></li>
-				<li><a href="#" class="text-white sinli">Venta de casa en Sama</a></li>
-			</ul>
-		</div>
+		<?php endfor; ?>
 	</div>
 </section>
-    <!-- Additional Scripts -->
-    <?= $this->renderSection('scripts') ?>
+	<!-- Additional Scripts -->
+	<?= $this->renderSection('scripts') ?>
 </body>
