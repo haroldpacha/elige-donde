@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <!-- Brand -->
             <a class="navbar-brand d-flex align-items-center" href="<?= base_url('admin') ?>">
-                <img src="<?= base_url('assets/images/remax-logo-white.png') ?>" alt="Elige Donde" height="30" class="me-2">
+                <img src="<?= base_url('images/logo-base.png') ?>" alt="Elige Donde" height="30" class="me-2">
                 <span class="fw-bold">Admin Panel</span>
             </a>
 
